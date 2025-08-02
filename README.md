@@ -33,7 +33,7 @@ This repository is a great starting point for anyone looking to:
 ## 1️⃣ Create React App (TypeScript Template)
 
 ```bash
-npx create-react-app containerize-react-app --template typescript
+npx create-react_app dockerized-react-app --template typescript
 ```
 🎯 Initialize your React app with TypeScript support.
 
@@ -90,7 +90,7 @@ Installiert exakt die Abhängigkeiten, die in package-lock.json definiert sind �
 Kopiert den gesamten Rest der Projektdateien in den Container.</p>
 
 <p><strong>RUN npm run build</strong><br>
-Führt den Produktions-Build der React-App aus, die statischen Dateien landen im build-Ordner.</p>
+Führt den Produktions-Build der React_App aus, die statischen Dateien landen im build-Ordner.</p>
 
 
 ## 4️⃣ .dockerignore file
@@ -114,15 +114,15 @@ is ignored because it will be generated inside the container during the build st
 To create a Docker image for your React app, run the following command in your project directory (where your Dockerfile is located):
 
 ```bash
-docker build -t react-app:alpine .
+docker build -t react_app:alpine .
 ```
 🎯 Explanation:
 
 <p><strong>docker build</strong><br>
 tells Docker to build an image from a Dockerfile.</p>
 
-<p><strong>-t react-app:alpine</strong><br>
-tags the image with the name react-app and the tag alpine (indicating it’s based on the lightweight Alpine Linux image).</p>
+<p><strong>-t react_app:alpine</strong><br>
+tags the image with the name react_app and the tag alpine (indicating it’s based on the lightweight Alpine Linux image).</p>
 
 <p><strong>.</strong><br>
 specifies the current directory as the build context (Docker will use the Dockerfile and project files here).</p>
@@ -137,7 +137,7 @@ specifies the current directory as the build context (Docker will use the Docker
 Run the following command to start a container from the image interactively and remove it after exit:
 
 ```bash
-docker run --rm -it react-app:alpine sh
+docker run --rm -it react_app:alpine sh
 
 ```
 🎯 Explanation:
@@ -151,7 +151,7 @@ automatically removes the container when it stops.</p>
 <p><strong>-it</strong><br>
 runs the container in interactive mode with a terminal attached.</p>
 
-<p><strong>react-app:alpine</strong><br>
+<p><strong>react_app:alpine</strong><br>
 specifies the image to run.</p>
 
 <p><strong>sh</strong><br>
@@ -275,21 +275,21 @@ The final Docker image contains only the lightweight Nginx server and the static
 Build the Docker image using the multi-stage Dockerfile with the Nginx server:
 
 ```bash
-docker build -t react-app:nginx .
+docker build -t react_app:blue .
 
 ```
-🎯 This creates an image named react-app with the tag nginx.
+🎯 This creates an image named react_app with the tag blue.
 
 ---------------------------------------
 
 ## 1️⃣1️⃣ Run the Container and Map Ports
-Run the container in detached mode and map port 9000 on your host to port 80 inside the container (Nginx default):
+Run the container in detached mode and map port 3000 on your host to port 80 inside the container (blue default):
 
 ```bash
-docker run -d -p 9000:80 react-app:nginx
+docker run -d -p 3000:80 react_app:blue
 
 ```
-🎯 You can now access the app at http://localhost:9000.
+🎯 You can now access the app at http://localhost:3000.
 
 ---------------------------------------
 
@@ -300,7 +300,7 @@ To see requests coming into the Nginx server, including JavaScript, CSS, and med
 docker logs -f <container_id_or_name>
 
 ```
-🎯 Meanwhile, access the app in your browser at http://localhost:9000.
+🎯 Meanwhile, access the app in your browser at http://localhost:3000.
 
 ---------------------------------------
 
@@ -310,7 +310,7 @@ docker logs -f <container_id_or_name>
 ---------------------------------------
 
 ## 1️⃣4️⃣ Refresh Browser — No Changes Yet
-Go back to your browser and refresh the page at http://localhost:9000.
+Go back to your browser and refresh the page at http://localhost:3000.
 
 🎯 You will not see any changes because the running container uses the old image. The new code is not reflected until you rebuild and redeploy.
 
@@ -319,29 +319,29 @@ Go back to your browser and refresh the page at http://localhost:9000.
 ---------------------------------------
 
 ## 1️⃣5️⃣ Stop Logs and Rebuild New Image
-Stop tailing logs (e.g., press Ctrl+C), then rebuild your Docker image with a new tag (e.g., bleu):
+Stop tailing logs (e.g., press Ctrl+C), then rebuild your Docker image with a new tag (e.g., green):
 
 ```bash
-docker build -t react-app:bleu .
+docker build -t react_app:green .
 
 ```
 🎯 
 ---------------------------------------
 
 ## 1️⃣6️⃣ Run the New Version on a Different Port
-Run the new image on port 9001, so both old and new versions run side by side:
+Run the new image on port 3001, so both old and new versions run side by side:
 
 ```bash
-docker run -d -p 9001:80 react-app:bleu
+docker run -d -p 3001:80 react_app:green
 
 ```
 🎯 
 ---------------------------------------
 
 ## 1️⃣7️⃣ Compare Old and New Versions
-Visit http://localhost:9000 to see the old version still running.
+Visit http://localhost:3000 to see the old version still running.
 
-Visit http://localhost:9001 to see the new version with your recent code changes.
+Visit http://localhost:3001 to see the new version with your recent code changes.
 
 🎯 
 ---------------------------------------
@@ -349,8 +349,8 @@ Visit http://localhost:9001 to see the new version with your recent code changes
 ## 1️⃣8️⃣Summary: Green-Blue Deployment Example
 🎯 By running two versions of the app simultaneously on different ports, you create a simple green-blue deployment setup:
 
-**Blue**: The current stable version (react-app:nginx on port 9000)
+**Blue**: The current stable version (react_app:blue on port 3000)
 
-**Green**: The new version being tested (react-app:bleu on port 9001)
+**Green**: The new version being tested (react_app:green on port 3001)
 
 This allows smooth updates and easy rollbacks without downtime.
