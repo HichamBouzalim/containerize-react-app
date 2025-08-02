@@ -343,14 +343,20 @@ Visit http://localhost:3000 to see the old version still running.
 
 Visit http://localhost:3001 to see the new version with your recent code changes.
 
-🎯 
 ---------------------------------------
 
-## 1️⃣8️⃣Summary: Green-Blue Deployment Example
+
+## 🚀 Summary
+This project demonstrates how to **containerize a React application** using a **multi-stage Docker build** and implement a **blue-green deployment strategy**.
+
+The process starts with creating a **React app** with **TypeScript**, building the **production-ready static files**, and serving them via an **Nginx container**. We use **Docker multi-stage builds** to efficiently build the app in one stage and serve it in another, keeping images lightweight and optimized.
+
+To enable smooth updates with **zero downtime**, we run **two containers side-by-side**, each based on **different image** versions. When code changes are made, a new **Docker image** is built and deployed alongside the existing one on a **different port**. Traffic can then be gradually switched from the **old container** to the **new one**, ensuring that the new version works **perfectly** before retiring **the old container**.
+
+The principle is really this: We build a container image with version A of the code, run it, then update the code and build a new image. We deploy the new container alongside the old one and gradually migrate traffic to the new container, ensuring stability before decommissioning the old.
+
 🎯 By running two versions of the app simultaneously on different ports, you create a simple green-blue deployment setup:
 
 **Blue**: The current stable version (react_app:blue on port 3000)
 
 **Green**: The new version being tested (react_app:green on port 3001)
-
-This allows smooth updates and easy rollbacks without downtime.
