@@ -1,8 +1,9 @@
-# 🚀 Containerizing React App with Multi-Stage Docker Build & Green-Blue Deployment 🌿🔵🔴
-Docker https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.testautomatisierung.org%2Flexikon%2Fdocker%2F14098888813_bec60d595d_o%2F&psig=AOvVaw1P_fsOdVTsfbiZAODM2yCf&ust=1754246732625000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJDp_r7k7I4DFQAAAAAdAAAAABAE
-react https://www.google.com/url?sa=i&url=https%3A%2F%2Fde.m.wikipedia.org%2Fwiki%2FDatei%3AReact-icon.svg&psig=AOvVaw0Mk9DI7__Fb1rYtZmpq_hw&ust=1754246778043000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLC-rtPk7I4DFQAAAAAdAAAAABAE
-node https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Fnodejs%2Fnode&psig=AOvVaw3Hr3i4P08d1_bW_xk2sCU6&ust=1754246833716000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMCNmfbk7I4DFQAAAAAdAAAAABAE
+# 🚀 Containerizing React App with Multi-Stage Docker Build & Green-Blue Deployment  <img src="https://bornsql.ca/wp-content/uploads/2023/01/docker.png" alt="c" width="40" height="40"/> <img src="https://images.icon-icons.com/2415/PNG/512/react_original_wordmark_logo_icon_146375.png" alt="cplusplus" width="40" height="40"/> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6mkk0TKy0Hww7V1J9JkVUaHoF35GhtJN1Tw&s" alt="csharp" width="40" height="40"/>
+
 This guide walks you through creating, containerizing, and deploying a React TypeScript app using Docker multi-stage builds and a simple green-blue deployment approach with Nginx.
+
+
+  
 
 ---
 
