@@ -1,5 +1,5 @@
 # 1. Build our production
-FROM node:22-alpine As build
+FROM node:22-alpine AS build
 
 WORKDIR /APP
 
